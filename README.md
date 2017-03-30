@@ -1,4 +1,4 @@
-# probeurre
+# probeurre-cloner
 
 **probeurre** shows statistics about comments on git repositories.
 
