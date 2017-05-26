@@ -1,5 +1,6 @@
 FROM python:3
 
+RUN mkdir /probeurre-data
 VOLUME /probeurre-data
 
 RUN apt-get update && \
@@ -10,4 +11,6 @@ COPY requirements.txt /probeurre/requirements.txt
 
 RUN pip3 install -r /probeurre/requirements.txt
 
-ENTRYPOINT ["/probeurre/probeurre.py"]
+WORKDIR /probeurre
+
+CMD ["/probeurre/probeurre.py"]

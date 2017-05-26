@@ -7,6 +7,9 @@ from argparse import ArgumentParser
 from git import Repo
 from tqdm import tqdm
 import os
+import sys
+
+print(sys.argv[1:])
 
 # Argument parsing
 parser = ArgumentParser(
