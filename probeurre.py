@@ -15,11 +15,11 @@ parser.add_argument("-v", "--verbose", help="be verbose", action="store_true")
 parser.add_argument("-r", "--repo", help="treat these repositories", nargs="+")
 parser.add_argument("-o", "--org", help="treat repositories of these GitHub organizations", nargs="+")
 parser.add_argument("-l", "--limit", help="treat at most that number of repositories per organization")
-parser.add_argument("-d", "--directory", help="directory to download files into")
+parser.add_argument("-w", "--workdir", help="directory to download files into")
 args = parser.parse_args()
 
-relativeWorkingDir = args.directory if args.directory else 'repos'
-workingDir = os.path.join(os.getcwd(), relativeWorkingDir)
+relativeWorkingDir = args.workdir
+workingDir = os.path.join('/probeurre-data', relativeWorkingDir)
 repos = args.repo
 
 if not repos:
@@ -28,6 +28,6 @@ if not repos:
 
 for repoUrl in repos:
     print('Cloning repo %s' % repoUrl)
-    Repo.clone_from(repoUrl, os.path.join(workingDir, os.path.basename(repoUrl)))
+    Repo.clone_from(repoUrl, os.path.join(workingDir, 'repo'))
 
 print('Cloning successful')
